@@ -4,11 +4,15 @@ from pathlib import Path
 from typing import Any, Dict, Optional
 
 import streamlit as st
+from dotenv import load_dotenv
 
 from app.services.data_loader import load_wines
 from app.services.gemini_service import GeminiServiceError, generate_recommendation
 from app.services.wine_filter import FALLBACK_MESSAGE, filter_wines
 
+
+# Load environment variables from .env file
+load_dotenv()
 
 DATASET_PATH = Path(__file__).parent / "app" / "data" / "schlumberger_products.json"
 LOGO_PATH = Path(__file__).parent / "Schlumberger_Logo_Web_600px.png"
