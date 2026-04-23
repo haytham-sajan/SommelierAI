@@ -138,6 +138,8 @@ def generate_recommendation(
     api_key = os.getenv("GEMINI_API_KEY")
     if not api_key and st is not None:
         api_key = st.secrets.get("GEMINI_API_KEY")
+    if not api_key and st is not None:
+        api_key = st.secrets.get("general", {}).get("GEMINI_API_KEY")
     if not api_key:
         raise GeminiServiceError(
             "Missing GEMINI_API_KEY environment variable or Streamlit secret."
