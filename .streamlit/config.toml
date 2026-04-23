@@ -1,0 +1,9 @@
+[theme]
+
+# White, clean base + soft “aesthetic” accents (lavender/indigo)
+primaryColor = "#6D5BD0"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F6F7FB"
+textColor = "#0F172A"
+font = "sans serif"
+
