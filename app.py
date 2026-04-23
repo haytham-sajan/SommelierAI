@@ -179,7 +179,7 @@ def main() -> None:
     with st.sidebar:
         st.markdown("**Settings**")
         mode = st.selectbox("Mode", options=["consumer", "training", "sales"], index=0)
-        price_ceiling = st.slider("Price ceiling (€)", min_value=0, max_value=200, value=0, step=5)
+        price_ceiling = st.slider("Price ceiling (€)", min_value=0, max_value=200, value=200, step=5)
 
     for msg in st.session_state.messages:
         with st.chat_message(msg["role"]):
