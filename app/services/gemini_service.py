@@ -6,6 +6,11 @@ from typing import Any, Dict, List, Optional, Sequence
 
 from dotenv import load_dotenv
 
+try:
+    import streamlit as st
+except ImportError:  # pragma: no cover
+    st = None
+
 
 SYSTEM_INSTRUCTION = """You are a closed-domain Schlumberger Product Assistant.
 
@@ -131,8 +136,12 @@ def generate_recommendation(
 
     load_dotenv()
     api_key = os.getenv("GEMINI_API_KEY")
+    if not api_key and st is not None:
+        api_key = st.secrets.get("GEMINI_API_KEY")
     if not api_key:
-        raise GeminiServiceError("Missing GEMINI_API_KEY environment variable.")
+        raise GeminiServiceError(
+            "Missing GEMINI_API_KEY environment variable or Streamlit secret."
+        )
 
     try:
         import google.generativeai as genai
