@@ -1,12 +1,5 @@
 ## Schlumberger AI Wine Assistant (MVP)
 
-Production-ready MVP of a **closed-domain** wine recommendation assistant.
-
-### Rules (non-negotiable)
-
-- Recommendations must **only** come from the local dataset: `app/data/schlumberger_wines.json`
-- If no match is found, the app must return:
-  - `Keine passenden Weine in der Schlumberger-Datenbank gefunden.`
 
 ### Setup
 
